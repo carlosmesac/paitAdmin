@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bluetoothpubli": {
+      "hosting": {
+        "MenuCreator": [
+          "bluetoothpubli"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bluetoothpubli"
+  }
+}

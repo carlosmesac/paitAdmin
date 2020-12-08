@@ -1,0 +1,124 @@
+
+<div class="mySpinner" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<ng-template appPlaceholder></ng-template>
+
+<!--Login Form-->
+<mat-card class="login" *ngIf="isLoginMode && !isLoading">
+  <mat-card-content>
+    <mat-card-title> Login</mat-card-title>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-error *ngIf="loginInvalid">
+        The email and password were not recognised
+      </mat-error>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" formControlName="email"/>
+        <mat-error> Please provide a valid email address</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+        />
+        <mat-error> Please provide a valid password</mat-error>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" type="submit">Login</button>
+      |
+      <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="changeMode()">
+        <a style="text-decoration: none">Go to Sign Up</a>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<!--SignUp Form-->
+
+<mat-card class="signup" *ngIf="!isLoginMode && !isLoading">
+  <mat-card-title> Sign Up</mat-card-title>
+  <mat-vertical-stepper linear #stepper>
+    <mat-step [stepControl]="fourthSignUpGroup">
+      <form [formGroup]="fourthSignUpGroup">
+        <ng-template matStepLabel>Fill out your restaurant name</ng-template>
+        <mat-form-field>
+          <mat-label>Restaurant Name</mat-label>
+          <mat-error> Please provide a valid name</mat-error>
+          <input matInput formControlName="restaurantName" placeholder="restaurantName"/>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+          <button mat-raised-button color="primary" (click)="changeMode()">
+            Back to Login
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="firstSignUpGroup">
+      <form [formGroup]="firstSignUpGroup">
+        <ng-template matStepLabel>Fill out your bluetooth MAC</ng-template>
+        <mat-form-field>
+          <mat-label>Bluetooth MAC</mat-label>
+          <mat-error> Please provide a valid MAC</mat-error>
+          <input matInput placeholder="MAC" formControlName="MAC"/>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Back</button>
+
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondSignUpGroup">
+      <form [formGroup]="secondSignUpGroup">
+        <ng-template matStepLabel>Fill out your email</ng-template>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <mat-error> Please provide a valid email address</mat-error>
+          <input matInput formControlName="email" placeholder="Email"/>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdSignUpGroup">
+      <form [formGroup]="thirdSignUpGroup">
+        <ng-template matStepLabel>Fill up your password</ng-template>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <mat-error> Please provide a valid password</mat-error>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Password"
+            type="password"
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are almost done.</p>
+      <div>
+        <button mat-button type="button" (click)="onSubmit()">
+          Create User
+        </button>
+        <!--button mat-button matStepperPrevious>Back</button-->
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</mat-card>

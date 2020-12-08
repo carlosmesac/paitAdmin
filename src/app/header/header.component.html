@@ -1,0 +1,56 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation" mode="side">
+    <mat-nav-list>
+      <a routerLink="/home" (click)="sidenav.toggle()">
+        <mat-icon class="mobileIcon">home</mat-icon>
+        <span class="mobileLabel">Home</span>
+      </a>
+      <a routerLink="/auth" *ngIf="!loggedIn" (click)="sidenav.toggle()">
+        <mat-icon class="mobileIcon">input</mat-icon>
+        <span class="mobileLabel">Login</span>
+      </a>
+      <a (click)="onLogoutSync()" *ngIf="loggedIn" (click)="sidenav.toggle()">
+        <mat-icon class="mobileIcon">input</mat-icon>
+        <span class="mobileLabel">Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <a routerLink="/"> Menu Creator </a>
+      </div>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+          <li>
+            <a routerLink="/home">
+              <mat-icon class="icon">home</mat-icon>
+              <span class="label">Home</span>
+            </a>
+          </li>
+          <li *ngIf="!loggedIn">
+            <a routerLink="/auth">
+              <mat-icon class="icon">input</mat-icon>
+              <span class="label">Login</span>
+            </a>
+          </li>
+          <li *ngIf="loggedIn">
+            <a (click)="onLogoutSync()">
+              <mat-icon class="icon">input</mat-icon>
+              <span class="label">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <main>
+          <router-outlet></router-outlet>
+      </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
