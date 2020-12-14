@@ -5,6 +5,14 @@
         <mat-icon class="mobileIcon">home</mat-icon>
         <span class="mobileLabel">Home</span>
       </a>
+      <a (click)="saveMenus()"  (click)="sidenav.toggle()">
+        <mat-icon class="mobileIcon">save</mat-icon>
+        <span class="mobileLabel">Save Menus</span>
+      </a>
+      <a (click)="fetchMenus()"  (click)="sidenav.toggle()">
+        <mat-icon class="mobileIcon">cloud_download</mat-icon>
+        <span class="mobileLabel">fetch Menus</span>
+      </a>
       <a routerLink="/auth" *ngIf="!loggedIn" (click)="sidenav.toggle()">
         <mat-icon class="mobileIcon">input</mat-icon>
         <span class="mobileLabel">Login</span>
@@ -34,6 +42,18 @@
               <span class="label">Home</span>
             </a>
           </li>
+          <li>
+            <a (click)="saveMenus()">
+              <mat-icon class="icon" >save</mat-icon>
+              <span class="label">Save Menus</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="fetchMenus()">
+              <mat-icon class="icon" >cloud_download</mat-icon>
+              <span class="label">Fetch Menus</span>
+            </a>
+          </li>
           <li *ngIf="!loggedIn">
             <a routerLink="/auth">
               <mat-icon class="icon">input</mat-icon>
@@ -51,6 +71,6 @@
     </mat-toolbar>
     <main>
           <router-outlet></router-outlet>
-      </main>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

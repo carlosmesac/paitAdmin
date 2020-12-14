@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col-xs-12">
-    <button mat-raised-button color="accent" onclick="newMenu()">New Menu</button>
+    <button mat-raised-button color="accent" (click)="newMenu()">New Menu</button>
   </div>
 </div>
 <hr />
 <div class="row">
-  <div class="col-xs-12"></div>
+  <div class="col-xs-12">    <app-menu-item
+    *ngFor="let menuEL of menus; let i = index"
+    [menu]="menuEL"
+    [menuID] ="i"
+  ></app-menu-item></div>
 </div>

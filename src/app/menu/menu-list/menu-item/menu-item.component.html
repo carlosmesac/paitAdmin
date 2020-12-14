@@ -1,1 +1,21 @@
-<p>menu-item works!</p>
+<a
+  style="cursor: pointer"
+  [routerLink]="[menuID]"
+  routerLinkActive="active"
+  class="list-group-item clearfix"
+>
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">
+      {{ menu.name }}
+    </h4>
+  </div>
+  <span class="pull-right">
+    <img
+      src="{{ menu.firstImageURL }}"
+      alt="{{ menu.first }}"
+      class="img-responsive"
+      style="max-height: 50px"
+    />
+    <!-- Podemos añadir el src con string interpolation o con property binding-->
+  </span>
+</a>

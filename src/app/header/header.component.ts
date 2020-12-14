@@ -2,6 +2,9 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import {query} from '@angular/animations';
+import { DataStorageService } from '../shared/data-storage.service';
+import { Menu } from '../menu/menu.model';
+import { MenuService } from '../menu/menu.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +19,9 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService,
               private changeDetector: ChangeDetectorRef,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private datasotrageService:DataStorageService,
+              private menuService:MenuService) {
   }
 
   ngOnInit(): void {
@@ -38,6 +43,16 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  saveMenus(){
+    this.datasotrageService.storeMenus();
+  }
+
+  fetchMenus(){
+    this.datasotrageService.fetchMenus().subscribe((menus:Menu[])=>{
+      this.menuService.setMenu(menus);
+    })
+
+  }
 
 
   // onLogout() {

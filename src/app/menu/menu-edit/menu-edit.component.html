@@ -1,1 +1,96 @@
-<p>menu-edit works!</p>
+<form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="!menuForm.valid"
+      >
+        Save
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-raised-button color="warn" (click)="onCancel()">
+        Cancel
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="menu name" formControlName="menuName" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>menu name</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="first dish" formControlName="first" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>first dish name</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input
+        matInput
+        placeholder="first dish image URL"
+        formControlName="firstImageURL"
+      />
+      <mat-icon matSuffix>image</mat-icon>
+      <mat-hint>first dish image</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="second dish" formControlName="second" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>second dish name</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input
+        matInput
+        placeholder="second dish image URL"
+        formControlName="secondImageURL"
+      />
+      <mat-icon matSuffix>image</mat-icon>
+      <mat-hint>first dish image</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="dessert" formControlName="dessert" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>dessert name</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input
+        matInput
+        placeholder="dessert image URL"
+        formControlName="dessertImageURL"
+      />
+      <mat-icon matSuffix>image</mat-icon>
+      <mat-hint>dessert image</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput type="number" placeholder="Total price" formControlName="price" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>price</mat-hint>
+    </mat-form-field>
+  </p>
+</form>

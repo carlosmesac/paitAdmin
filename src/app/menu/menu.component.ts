@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from './menu.service';
+import { DataStorageService } from '../shared/data-storage.service';
+import { Menu } from './menu.model';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menuService : MenuService, private datastorageService: DataStorageService) { }
 
   ngOnInit(): void {
+    this.datastorageService.fetchMenus().subscribe((menus:Menu[])=>{
+      this.menuService.setMenu(menus);
+    })
   }
 
 }

@@ -39,7 +39,6 @@ import { MenuStartComponent } from './menu/menu-start/menu-start.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,

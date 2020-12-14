@@ -3,10 +3,6 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 
 }
 
-mat-sidenav {
-  width: 180px;
-  background: linear-gradient(to bottom, #673ab7 40%, #9ec5ff 100%);
-}
 
 a {
   text-decoration: none;
@@ -29,7 +25,7 @@ a:active {
   display: inline-block;
   height: 29px;
   margin: 0 auto;
-  padding-right: 30px;
+  padding-right: 10px;
   text-align: center;
   vertical-align: middle;
   width: 15%;
@@ -70,4 +66,3 @@ a:active {
 
 
 }
-
