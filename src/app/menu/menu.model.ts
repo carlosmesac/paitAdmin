@@ -1,5 +1,5 @@
 export class Menu {
-  public name:string;
+  public menuName:string;
   public first:string;
   public firstImageURL:string;
   public second:string;

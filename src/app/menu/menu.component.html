@@ -1,8 +1,5 @@
-<mat-grid-list cols="4" rowHeight="4:1" >
-  <mat-grid-tile rowspan="2" colspan="3">
-    <app-menu-list></app-menu-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <router-outlet></router-outlet>
-  </mat-grid-tile>
-</mat-grid-list>
+
+<div class="wrapper">
+  <div class="one"><app-menu-list></app-menu-list></div>
+  <div class="two"><router-outlet></router-outlet></div>
+</div>
