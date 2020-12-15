@@ -1,24 +1,40 @@
-<h2>
-  {{menuDetail.menuName}}
-</h2>
+<h2>{{ menuDetail.menuName }} -- Price: {{ menuDetail.price }}€</h2>
 <div>
   <mat-tab-group>
-    <mat-tab label="First"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
+    <mat-tab label="First Dish">
+      <div>
+        <p>Nombre del primer plato: {{ menuDetail.first }}</p>
+        <img
+          src="{{ menuDetail.firstImageURL }}"
+          alt="{{ menuDetail.first }}"
+          style="text-align: center; max-width: 200px"
+        />
+      </div>
+    </mat-tab>
+    <mat-tab label="Second Dish">
+      <div>
+        <p>Nombre del segundo plato: {{ menuDetail.second }}</p>
+        <img
+          src="{{ menuDetail.secondImageURL }}"
+          alt="{{ menuDetail.second }}"
+          style="text-align: center; max-width: 200px"
+        />
+      </div>
+    </mat-tab>
+    <mat-tab label="Dessert">
+      <div>
+        <p>Nombre del postre: {{ menuDetail.dessert }}</p>
+        <img
+          src="{{ menuDetail.dessertImageURL }}"
+          alt="{{ menuDetail.dessert }}"
+          style="text-align: center; max-width: 200px"
+        />
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>
 
-
-<div style="margin-top: 15px; text-align: center;"
->      <button
-  mat-raised-button
-  color="accent"
-  (click)="onEdit()"
->
-  Edit
-</button> |
-<button mat-raised-button color="warn" (click)="onDelete()">
-  Delete
-</button>
+<div style="margin-top: 15px; text-align: center">
+  <button mat-raised-button color="accent" (click)="onEdit()">Edit</button> |
+  <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
 </div>

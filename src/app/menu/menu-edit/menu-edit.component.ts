@@ -46,8 +46,17 @@ export class MenuEditComponent implements OnInit {
     let secondImageURL = ''
     let dessert = '';
     let dessertImageURL = ''
-    let price =''
+    let price :number = 0
     if(this.editMode){
+      let menu = this.menuService.getMenuFromID(this.id)
+      menuName = menu.menuName;
+      first = menu.first;
+      firstImageURL = menu.firstImageURL
+      second = menu.second;
+      secondImageURL = menu.secondImageURL;
+      dessert = menu.dessert;
+      dessertImageURL = menu.dessertImageURL;
+      price = menu.price;
 
     }
     this.menuForm = new FormGroup({

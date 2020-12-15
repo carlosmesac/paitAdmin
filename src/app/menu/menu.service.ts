@@ -26,6 +26,7 @@ export class MenuService {
 
   updateMenu(index:number,menu:Menu){
     this.menus[index]= menu
+    this.menus[index].uid = this.authService.getUID()
     this.menuChanged.next(this.menus.slice())
   }
 
