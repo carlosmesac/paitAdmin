@@ -17,9 +17,9 @@
     </mat-grid-tile>
   </mat-grid-list>
   <p>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill"   >
       <mat-label>Fill form field</mat-label>
-      <input matInput placeholder="menu name" formControlName="menuName" />
+      <input matInput placeholder="menu name" formControlName="menuName"  [readonly]="editMode"/>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>menu name</mat-hint>
     </mat-form-field>
@@ -61,7 +61,7 @@
         formControlName="secondImageURL"
       />
       <mat-icon matSuffix>image</mat-icon>
-      <mat-hint>first dish image</mat-hint>
+      <mat-hint>Second dish image</mat-hint>
     </mat-form-field>
   </p>
   <p>

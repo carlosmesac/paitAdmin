@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Menu } from '../menu.model';
 import { MenuService } from '../menu.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-menu-detail',
@@ -13,7 +14,7 @@ export class MenuDetailComponent implements OnInit {
   menuID:number;
   menuDetail:Menu;
 
-  constructor(private menuService:MenuService,private route:ActivatedRoute,private router:Router) { }
+  constructor(private menuService:MenuService,private route:ActivatedRoute,private router:Router, private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params:Params)=>{
@@ -31,6 +32,7 @@ export class MenuDetailComponent implements OnInit {
   onDelete() {
     this.menuService.deleteItem(this.menuID);
     this.router.navigate(['..'], { relativeTo: this.route });
+    this.dataStorageService.storeMenus()
   }
 
 }

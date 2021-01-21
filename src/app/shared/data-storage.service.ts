@@ -20,7 +20,9 @@ export class DataStorageService {
   ) {}
 
   storeMenus() {
-    const menus = this.menuService.getMenus();
+    const menus = this.menuService.getAllMenus();
+    console.log(menus);
+
     this.httpClient
       .put('https://bluetoothpubli.firebaseio.com/menus.json', menus)
       .subscribe((response) => {
@@ -32,6 +34,15 @@ export class DataStorageService {
     return this.fireDB
     .list('menus', (ref) => {
       return ref.orderByChild('uid').equalTo(this.authService.getUID()); //Filtro
+    })
+    .valueChanges();
+
+  }
+
+  fetchAllMenus() {
+    return this.fireDB
+    .list('menus', (ref) => {
+      return ref.orderByChild('uid'); //Filtro
     })
     .valueChanges();
 

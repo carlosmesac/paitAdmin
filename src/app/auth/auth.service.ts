@@ -54,8 +54,9 @@ export class AuthService {
 
   async loginSync(email: string, password: string): Promise<boolean> {
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
+      const user = await firebase.auth().signInWithEmailAndPassword(email, password);
       this.loggedIn.next(true);
+      this.currentID = user.user.uid;
       return true;
     } catch (err) {
       console.log(err);
